@@ -1,12 +1,14 @@
 import React,{useState, useEffect, useLayoutEffect, useCallback} from 'react'
-import { GiftedChat } from 'react-native-gifted-chat'
+import { GiftedChat, Send, InputToolbar } from 'react-native-gifted-chat'
 import { TouchableOpacity, Text } from 'react-native'
 import { collection, addDoc, orderBy, query, onSnapshot} from 'firebase/firestore'
 import { signOut } from 'firebase/auth'
 import { auth, database } from '../config/firebase'
 import { useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons';
 import colors from '../colors'
+import { View, StyleSheet } from 'react-native'
 
 const Chat = () => {
   const [messages, setMessages] = useState([])
@@ -61,6 +63,20 @@ const Chat = () => {
     });
   }, []);
 
+  const renderInputToolbar = (props) => {
+    return <InputToolbar {...props} containerStyle={styles.inputToolbar} />
+  }
+
+  const renderSend = (props) => {
+    return (
+      <Send {...props}>
+        <View>
+          <Ionicons name="send" size={24} color="#1A3C84" style={{marginBottom: 5, marginRight: 8}} />
+        </View>
+      </Send>
+    )
+  }
+
   return (
     <GiftedChat
       messages={messages}
@@ -69,9 +85,20 @@ const Chat = () => {
         _id: auth?.currentUser?.email,
         avatar:  'https://i.pravatar.cc/300'
       }}
-      
+      alwaysShowSend
+      renderSend={renderSend}
+      renderInputToolbar={renderInputToolbar}
+      placeholder="Escribe tu mensaje"
     />
   )
 }
-
+const styles = StyleSheet.create({
+    inputToolbar: {
+      marginBottom: 5,
+      marginLeft: 5,
+      marginRight: 5,
+      borderRadius: 25,
+      padding: 0
+  }
+})
 export default Chat

@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1A3C84"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,8 +23,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#1A3C84"
+      },
+      "package": "com.chatapp.axtra"
     },
     "web": {
       "favicon": "./assets/favicon.png"

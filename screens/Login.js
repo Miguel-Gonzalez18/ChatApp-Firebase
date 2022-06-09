@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, TouchableOpacity, StatusBar, Alert } from 'react-native'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
-const backImage = require("../assets/backImage.png");
+const backImage = require("../assets/backImage.jpg");
 
 
 const Login = ({ navigation }) => {
@@ -52,7 +52,7 @@ const Login = ({ navigation }) => {
                         No tienes una cuenta?
                     </Text>
                     <TouchableOpacity onPress={()=> navigation.navigate("Signup")}>
-                        <Text style={{color: "#f57c00", fontWeight: '600', fontSize: 14}}> crea una aquí</Text>
+                        <Text style={{color: "#1A3C84", fontWeight: '600', fontSize: 14}}> crea una aquí</Text>
                     </TouchableOpacity>
                 </View>
             </SafeAreaView>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 36,
         fontWeight: 'bold',
-        color: 'orange',
+        color: '#1A3C84',
         alignSelf: 'center',
         paddingBottom: 24
     },
@@ -93,7 +93,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         backgroundColor: '#fff',
-        borderTopLeftRadius: 60
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40
     },
     form: {
         marginTop: 150,
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 30
     },
     button: {
-        backgroundColor: '#f57c00',
+        backgroundColor: '#1A3C84',
         height: 58,
         borderRadius: 10,
         justifyContent: 'center',
